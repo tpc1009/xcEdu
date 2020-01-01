@@ -16,7 +16,7 @@ public class CmsPageController implements CmsPageControllerAPi {
     @Autowired
     private PageService pageService;
 
-    
+
     @GetMapping("/list/{page}/{size}")
     public QueryResponseResult findList(@PathVariable int page, @PathVariable int size) {
 
