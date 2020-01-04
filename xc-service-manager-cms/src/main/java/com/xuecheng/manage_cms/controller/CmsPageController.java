@@ -17,8 +17,8 @@ public class CmsPageController implements CmsPageControllerAPi {
     private PageService pageService;
 
 
-    @GetMapping("/list/{page}/{size}")
-    public QueryResponseResult findList(@PathVariable int page, @PathVariable int size) {
+    //@GetMapping("/list/{page}/{size}")
+    public QueryResponseResult findListall(@PathVariable int page, @PathVariable int size) {
 
        /* QueryResult<CmsPage> queryResult= new QueryResult<>();
         ArrayList<CmsPage> list = new ArrayList<>();
@@ -39,7 +39,10 @@ public class CmsPageController implements CmsPageControllerAPi {
 
     @Override
     @GetMapping("/list/{page}/{size}")
-    public QueryResponseResult findList(int page, int size, QueryPageRequest queryPageRequest) {
-        return null;
+    public QueryResponseResult findList(@PathVariable int page, @PathVariable int size) {
+        QueryPageRequest request = new QueryPageRequest();
+        request.setPageAliase("test002");
+
+        return this.pageService.findList(page,size,request);
     }
 }
